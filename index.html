@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <title>Global Parli</title>
+   </head>
+   <body>
+       <div class="container form-input-c" >
+            <div class="row">
+                <div class="col-12 mt-3 mb-3">
+                    <h3>Generate Coupons</h3>
+                    <input type="text" class="form-control mb-1" name="crop-name" id="crop-name" placeholder="Crop Name" value="Crop Name">
+                    <input type="text" class="form-control mb-1" name="range-from" id="range-from" placeholder="Range From" value="1">
+                    <input type="text" class="form-control mb-1" name="range-to" id="range-to" placeholder="Range To" value="20">
+                    <input type="date" class="form-control mb-1" name="coupon-date" id="coupon-date" placeholder="Coupon">
+                    <button class="btn btn-primary btn-generate-coupon mt-2 mb-3 float-right"> Generate </button>
+                </div>
+            </div>
+       </div>
+     <div class="container">
+         <div class="row" id="generatehere">
+             
+         </div>
+     </div>
+      <script src="vendor/boostrap/js/jquery-3.3.1.slim.min.js"></script>
+      <script src="vendor/boostrap/js/popper.min.js"></script>
+      <script src="vendor/boostrap/js/bootstrap.min.js"></script>
+      <script>
+          $('.btn-generate-coupon').on('click',function(){
+              var cropName = $('#crop-name').val();
+              var rangeFrom = $('#range-from').val();
+              var rangeto = $('#range-to').val();
+              var couponDate = $('#coupon-date').val();
+              var htmlString = "";
+              for (let index = parseInt(rangeFrom); index < parseInt(rangeto) + 1; index++) {
+                   htmlString += 
+                  `<div class="col-lg-6 col-md-6 col-sm-6 report-container">
+                <table class="table table-bordered report">
+                    <tr>
+                       <td colspan="2" class="text-center">
+                           <img src="assets/img/GlobalParli.png" style="width: 100px;height: auto;">
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>कुपन नंबर</td>
+                       <td class="processnumber">`+index+`</td>
+                    </tr>
+                    <tr>
+                       <td>पीक</td>
+                       <td>`+cropName+`</td>
+                    </tr>
+                    <tr>
+                       <td>दिनांक</td>
+                       <td class="processnumber">`+couponDate+`</td>
+                    </tr>
+                    <tr>
+                       <td>पावती क्रमांक </td>
+                       <td class="processnumber"></td>
+                    </tr>
+                 </table>
+             </div>`;
+                  
+              }
+              $('#generatehere').html(htmlString);
+              processnumber();
+          })
+          function processnumber(){
+            var numberprocess = $('.processnumber')
+            numberprocess.each(function(){
+                var innerText = $(this).text();
+                var newinnerText = innerText
+                .replace(/1/g,'१')
+                .replace(/2/g,'२')
+                .replace(/3/g,'३')
+                .replace(/4/g,'४')
+                .replace(/5/g,'५')
+                .replace(/6/g,'६')
+                .replace(/7/g,'७')
+                .replace(/8/g,'८')
+                .replace(/9/g,'९')
+                .replace(/0/g,'०')
+                ;
+                $(this).text(newinnerText);
+            });
+          }
+      </script>
+   </body>
+</html>
