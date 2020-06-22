@@ -26,10 +26,8 @@
                 </div>
             </div>
        </div>
-     <div class="container">
-         <div class="row" id="generatehere">
-             
-         </div>
+     <div class="container" id="generatehere">
+         
      </div>
       <script src="vendor/boostrap/js/jquery-3.3.1.slim.min.js"></script>
       <script src="vendor/boostrap/js/popper.min.js"></script>
@@ -45,7 +43,8 @@
               var htmlString = "";
               for (let index = parseInt(rangeFrom); index < parseInt(rangeto) + 1; index++) {
                    htmlString += 
-                  `<div class="col-lg-6 col-md-6 col-sm-6 report-container">
+                  `<div class="row report-container" >
+                     <div class="col-lg-6 col-md-6 col-sm-6 ">
                 <table class="table table-bordered report">
                     <tr>
                        <td colspan="2" class="text-center">
@@ -66,7 +65,7 @@
                     </tr>
                     <tr>
                        <td>दिनांक</td>
-                       <td class="processnumber"></td>
+                       <td class="processnumber">`+couponDate+`</td>
                     </tr>
                     <tr>
                        <td>पावती क्रमांक </td>
@@ -102,7 +101,9 @@
                        <td class="processnumber"></td>
                     </tr>
                  </table>
-             </div>`;
+             </div>
+            </div>
+                  `;
                   
               }
               $('#generatehere').html(htmlString);

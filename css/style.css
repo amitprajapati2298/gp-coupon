@@ -2,10 +2,10 @@
     .form-input-c{
         display: none;
     }
-    .report ,.report-container{
+    /* .report-container{
         page-break-inside: avoid;
         page-break-before: always;
         page-break-after: always;
-      }
+      } */
       
     }
