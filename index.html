@@ -18,7 +18,10 @@
                     
                     <input type="text" class="form-control mb-1" name="range-to" id="range-to" placeholder="Range To" value="20">
                     <input type="date" class="form-control mb-1" name="coupon-date" id="coupon-date" placeholder="Coupon">
-                    <button class="btn btn-primary btn-generate-coupon mt-2 mb-3 float-right"> Generate </button>
+                    <div class="btn-group float-right">
+                        <!-- <button class="btn btn-primary btn-print-coupon mt-2 mb-3"> Print </button> -->
+                        <button class="btn btn-primary btn-generate-coupon mt-2 mb-3 "> Generate </button>
+                    </div>
                 </div>
             </div>
        </div>
@@ -50,6 +53,39 @@
                     <tr>
                        <td>कुपन नंबर</td>
                        <td class="processnumber">`+prefix+` - `+index+`</td>
+                    </tr>
+                    <tr>
+                       <td>रोप संख्या</td>
+                       <td class="processnumber"></td>
+                    </tr>
+                    <tr>
+                       <td>पीक</td>
+                       <td>`+cropName+`</td>
+                    </tr>
+                    <tr>
+                       <td>दिनांक</td>
+                       <td class="processnumber">`+couponDate+`</td>
+                    </tr>
+                    <tr>
+                       <td>पावती क्रमांक </td>
+                       <td class="processnumber"></td>
+                    </tr>
+                 </table>
+             </div>
+             <div class="col-lg-6 col-md-6 col-sm-6 report-container">
+                <table class="table table-bordered report">
+                    <tr>
+                       <td colspan="2" class="text-center">
+                           <img src="assets/img/GlobalParli.png" style="width: 100px;height: auto;">
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>कुपन नंबर</td>
+                       <td class="processnumber">`+prefix+` - `+index+`</td>
+                    </tr>
+                    <tr>
+                       <td>रोप संख्या</td>
+                       <td class="processnumber"></td>
                     </tr>
                     <tr>
                        <td>पीक</td>
