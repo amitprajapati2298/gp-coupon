@@ -13,7 +13,9 @@
                 <div class="col-12 mt-3 mb-3">
                     <h3>Generate Coupons</h3>
                     <input type="text" class="form-control mb-1" name="crop-name" id="crop-name" placeholder="Crop Name" value="Crop Name">
+                    <input type="text" class="form-control mb-1" name="prefix" id="prefix" placeholder="PreFix" value="P">
                     <input type="text" class="form-control mb-1" name="range-from" id="range-from" placeholder="Range From" value="1">
+                    
                     <input type="text" class="form-control mb-1" name="range-to" id="range-to" placeholder="Range To" value="20">
                     <input type="date" class="form-control mb-1" name="coupon-date" id="coupon-date" placeholder="Coupon">
                     <button class="btn btn-primary btn-generate-coupon mt-2 mb-3 float-right"> Generate </button>
@@ -31,6 +33,7 @@
       <script>
           $('.btn-generate-coupon').on('click',function(){
               var cropName = $('#crop-name').val();
+              var prefix = $('#prefix').val();
               var rangeFrom = $('#range-from').val();
               var rangeto = $('#range-to').val();
               var couponDate = $('#coupon-date').val();
@@ -46,7 +49,7 @@
                     </tr>
                     <tr>
                        <td>कुपन नंबर</td>
-                       <td class="processnumber">`+index+`</td>
+                       <td class="processnumber">`+prefix+` - `+index+`</td>
                     </tr>
                     <tr>
                        <td>पीक</td>
