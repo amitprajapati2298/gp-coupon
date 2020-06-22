@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css" />
       <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="vendor/printjs/print.min.css">
       <title>Global Parli</title>
    </head>
    <body>
@@ -16,10 +17,10 @@
                     <input type="text" class="form-control mb-1" name="prefix" id="prefix" placeholder="PreFix" value="P">
                     <input type="text" class="form-control mb-1" name="range-from" id="range-from" placeholder="Range From" value="1">
                     
-                    <input type="text" class="form-control mb-1" name="range-to" id="range-to" placeholder="Range To" value="20">
+                    <input type="text" class="form-control mb-1" name="range-to" id="range-to" placeholder="Range To" value="500">
                     <input type="date" class="form-control mb-1" name="coupon-date" id="coupon-date" placeholder="Coupon">
                     <div class="btn-group float-right">
-                        <!-- <button class="btn btn-primary btn-print-coupon mt-2 mb-3"> Print </button> -->
+                        <button class="btn btn-primary btn-print-coupon mt-2 mb-3"> Print </button>
                         <button class="btn btn-primary btn-generate-coupon mt-2 mb-3 "> Generate </button>
                     </div>
                 </div>
@@ -33,6 +34,7 @@
       <script src="vendor/boostrap/js/jquery-3.3.1.slim.min.js"></script>
       <script src="vendor/boostrap/js/popper.min.js"></script>
       <script src="vendor/boostrap/js/bootstrap.min.js"></script>
+      <script src="vendor/printjs/print.min.js"></script>
       <script>
           $('.btn-generate-coupon').on('click',function(){
               var cropName = $('#crop-name').val();
@@ -64,7 +66,7 @@
                     </tr>
                     <tr>
                        <td>दिनांक</td>
-                       <td class="processnumber">`+couponDate+`</td>
+                       <td class="processnumber"></td>
                     </tr>
                     <tr>
                        <td>पावती क्रमांक </td>
@@ -106,6 +108,9 @@
               $('#generatehere').html(htmlString);
               processnumber();
           })
+          $('.btn-print-coupon').on('click',function(){
+            window.print();
+          });
           function processnumber(){
             var numberprocess = $('.processnumber')
             numberprocess.each(function(){
